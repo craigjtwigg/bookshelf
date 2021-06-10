@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body>
+       
+        <h1>BOOKSHELF</h1>
+
+        <button id="addbook">+</button>
+
+        <div id="books"></div>
+
+
+        <div class="popdiv" id="popdiv">
+            <form class="addnewbook" id="addnewbook"> 
+                <button class = "closeformbutton" id="closeformbutton">x</button>
+                <label for="formtitle">Title: </label><br>
+                <input class="addnewbook" type="text" id="formtitle" name="formtitle" required>
+                <br>
+                <label for="formauthor">Author: </label><br>
+                <input class="addnewbook" type="text" id="formauthor" name="formauthor" required>
+                <br>
+                <label for="formtitle">Number of Pages: </label><br>
+                <input class="addnewbook" type="text" id="formpages" name="formpages" required>
+                <br>
+                <label for="formread">Read: </label><br>
+                <input class="addnewbook" type="checkbox" id="formread" name="formread">
+                <br>
+                <button class="addnewbook" type="submit" id="formsubmit">Add Book</button>
+            </form>
+        </div>
+
+        <button id="resetlibrary">CLEAR MY BOOKSHELF</button>
+
+        <div class="whiteout"></div>
+
+
+
+        <script src="script.js" async defer></script>
+    </body>
+</html>
