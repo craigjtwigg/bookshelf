@@ -83,9 +83,9 @@ function formInput(){
     const title = document.querySelector('#formtitle').value;
     const author = document.querySelector('#formauthor').value;
     const pages = document.querySelector('#formpages').value;
-    const read = document.querySelector('#formread').checked;
+    const completed = document.querySelector('#formread').checked;
 
-    return new Book(title, author, pages, read);
+    return new Book(title, author, pages, completed);
 }
 
 
@@ -99,6 +99,7 @@ function addBookToLibrary(book){
     saveLibrary();
 }
 
+
 function displayBooks(arr){
         for (let i = 0; i < arr.length; i++){
             const card = document.createElement('div');
@@ -110,6 +111,8 @@ function displayBooks(arr){
             
             bookListDiv.appendChild(card);
             card.classList.add('bookcard');
+            card.setAttribute('id', `${arr.indexOf(arr[i])}`);
+            
 
             title.textContent = `"${arr[i].title}"`;
             card.appendChild(title);
@@ -123,7 +126,7 @@ function displayBooks(arr){
             card.appendChild(pages);
             pages.classList.add('bookpages')
 
-            if (`${arr.read}`) {
+            if (`${arr[i].completed}`) {
                 readbutton.textContent = "Read";
                 readbutton.style.background = "yellowgreen";
             } else {
@@ -133,10 +136,17 @@ function displayBooks(arr){
             card.appendChild(readbutton);
             readbutton.classList.add('readbutton');
 
+            deletebook.addEventListener('click', () => {
+               // arr.splice(`${arr.indexOf(arr[i])}`);
+                const thisbook = document.getElementById(`${arr.indexOf(arr[i])}`);
+                thisbook.remove();
+            });
             deletebook.textContent = "Remove";
             card.appendChild(deletebook);
             deletebook.classList.add('deletebookbutton');
+            
         }
+        
     }
 
 function resetDisplay(){
@@ -158,6 +168,7 @@ function resetDisplay(){
 
  function clearLibrary(){
      localStorage.clear();
+     myLibrary = [];
      resetDisplay();
  }
 

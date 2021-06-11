@@ -5,6 +5,7 @@ body {
     margin: 0;
     font-size: 16px;
     font-family: 'Ubuntu Condensed', sans-serif;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -208,6 +209,17 @@ input:focus {
     border: none;
 }
 
+.deletebookbutton:hover {
+    color: whitesmoke;
+    background: rgb(245, 61, 28);
+    scale: 1.1;
+    margin: 1rem;
+    height: 1.5rem;
+    width: 5rem;
+    border: none;
+}
+
+
 @media (orientation: portrait) {
     h1 {
         font-size: 2rem;
@@ -227,7 +239,6 @@ input:focus {
         color: whitesmoke;
         background: darkslateblue;
         border-radius: 50%;
-        box-shadow: 0.3rem 0.3rem 0.6rem rgba(35, 30, 68, 0.452);
     }
     
 }
