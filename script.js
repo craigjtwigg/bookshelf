@@ -137,9 +137,12 @@ function displayBooks(arr){
             readbutton.classList.add('readbutton');
 
             deletebook.addEventListener('click', () => {
-               // arr.splice(`${arr.indexOf(arr[i])}`);
                 const thisbook = document.getElementById(`${arr.indexOf(arr[i])}`);
                 thisbook.remove();
+                arr.splice(`${arr.indexOf(arr[i])}`, 1);
+                saveLibrary();
+                resetDisplay();
+                displayBooks(myLibrary);
             });
             deletebook.textContent = "Remove";
             card.appendChild(deletebook);
