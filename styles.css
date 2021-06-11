@@ -26,7 +26,8 @@ h1 {
     position: fixed;
     bottom: 0rem;
     right: 1rem;
-    display: block;
+    display: inline-block;
+    line-height: 7rem;
     width: 7rem;
     height: 7rem;
     font-size: 5rem;
@@ -209,6 +210,6 @@ input:focus {
 
 @media (orientation: portrait) {
     h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 }
