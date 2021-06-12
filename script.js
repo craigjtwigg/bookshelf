@@ -1,5 +1,6 @@
 
 
+
 //DOM VARIABLES
 
 const bookListDiv = document.getElementById('books');
@@ -18,7 +19,8 @@ addNewBookButton.addEventListener('click', newBookForm);
 window.addEventListener('keydown', keyboardSupport);
 closebutton.addEventListener('click', closeBookForm);
 bookForm.addEventListener('submit', submitBook);
-resetButton.addEventListener('click', clearLibrary)
+resetButton.addEventListener('click', clearLibrary);
+
 
 
 // KEYBOARD CONTROLS
@@ -101,7 +103,7 @@ function addBookToLibrary(book){
 
 
 function displayBooks(arr){
-        for (let i = 0; i < arr.length; i++){
+        for (let i = 0; i < myLibrary.length; i++){
             const card = document.createElement('div');
             const title = document.createElement('div');
             const author = document.createElement('div');
@@ -111,7 +113,7 @@ function displayBooks(arr){
             
             bookListDiv.appendChild(card);
             card.classList.add('bookcard');
-            card.setAttribute('id', `${arr.indexOf(arr[i])}`);
+            card.setAttribute('id', `${myLibrary.indexOf(arr[i])}`);
             
 
             title.textContent = `"${arr[i].title}"`;
@@ -125,21 +127,39 @@ function displayBooks(arr){
             pages.textContent = `${arr[i].pages} pages`;
             card.appendChild(pages);
             pages.classList.add('bookpages')
+          
+         
+            readbutton.addEventListener('click', () => {
+                if (myLibrary[i].completed !== "true"){
+                    myLibrary[i].completed = "true";
+                    saveLibrary();
+                    resetDisplay();
+                    displayBooks(myLibrary);
+                }
+                else if (myLibrary[i].completed === "true"){
+                    myLibrary[i].completed = false;
+                    saveLibrary();
+                    resetDisplay();
+                    displayBooks(myLibrary);
+                }
+                
+            })
 
-            if (`${arr[i].completed}`) {
+            if (`${arr[i].completed}` == "true") {
                 readbutton.textContent = "Read";
-                readbutton.style.background = "yellowgreen";
-            } else {
+                readbutton.style.background = "rgb(106, 190, 20)";
+            } if (`${arr[i].completed}` == "false") {
                 readbutton.textContent = "Not Read";
-                readbutton.style.background = "coral"
+                readbutton.style.background = "gold";                          readbutton.style.color = "black"
+
             }
             card.appendChild(readbutton);
             readbutton.classList.add('readbutton');
 
             deletebook.addEventListener('click', () => {
-                const thisbook = document.getElementById(`${arr.indexOf(arr[i])}`);
+                const thisbook = document.getElementById(`${myLibrary.indexOf(arr[i])}`);
                 thisbook.remove();
-                arr.splice(`${arr.indexOf(arr[i])}`, 1);
+                arr.splice(`${myLibrary.indexOf(arr[i])}`, 1);
                 saveLibrary();
                 resetDisplay();
                 displayBooks(myLibrary);
