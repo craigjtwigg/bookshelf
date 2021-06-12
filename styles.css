@@ -10,8 +10,8 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 2.4rem;
-    letter-spacing: 1.2rem;
+    font-size: 3rem;
+    letter-spacing: 2rem;
     color: darkslateblue;
     text-shadow: 0.3rem 0.3rem 0.6rem rgba(35, 30, 68, 0.452);
 }
@@ -20,6 +20,9 @@ h1 {
     text-align: center;
     padding-bottom: 2rem;
     font-size: 1.3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
+    width: 95%;
 }
 
 #addbook {
@@ -225,6 +228,7 @@ input:focus {
 @media (orientation: portrait) {
     h1 {
         font-size: 2rem;
+        letter-spacing: 1.4rem;
     }
 
     #addbook {
@@ -233,14 +237,25 @@ input:focus {
         bottom: 0rem;
         right: 1rem;
         display: inline-block;
-        line-height: 150px;
-        width: 150px;
-        height: 150px;
-        font-size: 80px;
+        line-height: 80px;
+        width: 80px;
+        height: 80px;
+        font-size: 60px;
         margin: 20px;
         color: whitesmoke;
         background: darkslateblue;
         border-radius: 50%;
+    }
+
+    #formsubmit {
+        cursor: pointer;
+        width: 80%;
+        margin: 2rem 0 1.5rem 0;
+        padding: 1.5rem;
+        border-radius: 0;
+        background: rgb(45, 26, 165);
+        color: white;
+        font-size: 1rem;
     }
     
 }
