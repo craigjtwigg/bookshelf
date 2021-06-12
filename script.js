@@ -12,6 +12,7 @@ const closebutton = document.querySelector('.closeformbutton');
 const submitButton = document.querySelector('#formsubmit');
 const bookForm = document.querySelector('#addnewbook');
 const resetButton = document.querySelector('#resetlibrary');
+const welcomeMessage = document.querySelector('.welcome');
 
 // EVENT LISTENERS
 
@@ -42,11 +43,27 @@ this.info = function() {
 }
 }
 
-//ALL OF THE BOOKS TO BE PUSHED TO THIS ARRAY
+// INITIALIZE
 
 let myLibrary = [];
 loadLibrary();
 displayBooks(myLibrary);
+welcome();
+
+
+function welcome(){
+    if (myLibrary.length < 1){
+        welcomeMessage.innerHTML = "Welcome to BOOKSHELF! <BR><BR>Here you can keep track of all your books and which ones you still need to dig in to! Press the purple button in the corner to add your first book! <BR><BR>You can check back in anytime and your books will still be here!";
+        welcomeMessage.style.padding = "2rem"; 
+        resetButton.style.scale = "0";
+    }
+
+    else {
+        welcomeMessage.innerHTML = " ";
+        welcomeMessage.style.padding = "0rem"; 
+        resetButton.style.scale = "1";
+    }
+}
 
 //DUMMY BOOKS
 
@@ -62,7 +79,6 @@ displayBooks(myLibrary);
 
 function newBookForm(){
     bookForm.reset();
-    newBookFormDiv.style.transform = "rotate(360deg)";
     newBookFormDiv.style.scale = "1";
     newBookFormDiv.style.opacity = "1";
     whiteout.style.opacity = "0.6";
@@ -174,6 +190,7 @@ function displayBooks(arr){
 
 function resetDisplay(){
     bookListDiv.innerHTML= "";
+    welcome();
 }
 
 
@@ -187,6 +204,7 @@ function resetDisplay(){
  function loadLibrary(){
     myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
      if(myLibrary === null) myLibrary = [];
+     console.table(myLibrary)
  }
 
  function clearLibrary(){
@@ -194,6 +212,3 @@ function resetDisplay(){
      myLibrary = [];
      resetDisplay();
  }
-
-console.log(myLibrary);
-displayBooks();
