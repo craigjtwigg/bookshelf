@@ -55,13 +55,13 @@ function welcome(){
     if (myLibrary.length < 1){
         welcomeMessage.innerHTML = "Welcome to BOOKSHELF! <BR><BR>Here you can keep track of all your books and which ones you still need to dig in to! Press the purple button in the corner to add your first book! <BR><BR>You can check back in anytime and your books will still be here!";
         welcomeMessage.style.padding = "2rem"; 
-        resetButton.style.scale = "0";
+        resetButton.style.transform = "scale(0)";
     }
 
     else {
         welcomeMessage.innerHTML = " ";
         welcomeMessage.style.padding = "0rem"; 
-        resetButton.style.scale = "1";
+        resetButton.style.transform = "scale(1)";
     }
 }
 
@@ -79,15 +79,15 @@ function welcome(){
 
 function newBookForm(){
     bookForm.reset();
-    newBookFormDiv.style.scale = "1";
+    newBookFormDiv.style.transform = "scale(1)";
     newBookFormDiv.style.opacity = "1";
     whiteout.style.opacity = "0.6";
-    whiteout.style.scale = "1";
+    whiteout.style.transform = "scale(1)";
 }
 
 function closeBookForm(){
-    newBookFormDiv.style.scale = "0";
-    whiteout.style.scale = "0";
+    newBookFormDiv.style.transform = "scale(0)";
+    whiteout.style.transform = "scale(0)";
 }
 
 function submitBook(e){
