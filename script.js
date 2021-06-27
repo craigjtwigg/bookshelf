@@ -33,7 +33,13 @@ function keyboardSupport(e){
 
 //BOOK CONSTRUCTOR
 
-function Book(title, author, pages, completed) {
+class Book {
+    constructor(
+        title = "",
+        author = "",
+        pages = "",
+        completed = false
+        ) {
 this.title = title
 this.author = author
 this.pages = pages
@@ -41,7 +47,7 @@ this.completed = completed
 this.info = function() {
     return this.title + " by " + this.author + ", " + this.pages + " pages, " + this.completed + "."; 
 }
-}
+} }
 
 // INITIALIZE
 
@@ -165,7 +171,7 @@ function displayBooks(arr){
                 readbutton.textContent = "Read";
                 readbutton.style.background = "rgb(106, 190, 20)";
             } if (`${arr[i].completed}` == "false") {
-                readbutton.textContent = "Not Read";
+                readbutton.textContent = "Unread";
                 readbutton.style.background = "gold";                          readbutton.style.color = "black"
 
             }
